@@ -12,7 +12,7 @@ st.write("Sur ce site vous pourrez trouver la liste des produits de la ferme Au 
 st.write("Les différentes catégories sont disponibles dans le menu à gauche")
 
 
-st.markdown("## Contact")
+st.markdown("### Contact")
 st.markdown("GAEC Au Champ du Puits  \n211 chemin de la Fontaine  \n01430, Peyriat")
 contact_list = """
 email: ...\n

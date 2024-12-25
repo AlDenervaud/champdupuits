@@ -55,28 +55,13 @@ thumbnail_renderer = JsCode("""
 
 gb.configure_column(
     "Image_Path",
-    headerName="wut",
+    headerName="Photo",
     width=100,
     cellRenderer=thumbnail_renderer
 )
-
-
 
 grid = AgGrid(df,
             gridOptions=gb.build(),
             updateMode=GridUpdateMode.VALUE_CHANGED,
             allow_unsafe_jscode=True)
 
-# Works locally but not streamlit community cloud
-#vgo = gb.build()
-#AgGrid(df, gridOptions=vgo, theme='streamlit', height=150, allow_unsafe_jscode=True )
-
-
-if False:
-    # Loop through the DataFrame to display images with corresponding names
-    for index, row in products_df.iterrows():
-        nom = row["Nom"]
-        st.write(nom)
-        st.write(row["Prix"])
-        #st.image(row['Image_Path'], caption=nom)
-        st.image("data/images/apiculture/pain_epices.jpg", caption="default")

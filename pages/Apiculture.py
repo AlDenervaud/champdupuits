@@ -47,9 +47,10 @@ gb.configure_column(
           init(params) {
             this.eGui = document.createElement('a');
             this.eGui.innerText = 'SomeText';
-            this.eGui.setAttribute('href', params.value);
+            this.eGui.setAttribute('src', params.value);
+            this.eGui.setAttribute('width', '100');
+            this.eGui.setAttribute('height', 'auto');
             this.eGui.setAttribute('style', "text-decoration:none");
-            this.eGui.setAttribute('target', "_blank");
           }
           getGui() {
             return this.eGui;

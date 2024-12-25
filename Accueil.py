@@ -18,6 +18,6 @@ st.image(image_url, caption="test 1")
 image_url = "data/images/pain_epices.jpg"
 st.image(image_url, caption="test 2")
 
-#from PIL import Image
-#image_1=Image.open('online_education.jpg')
-#st.image(image_1)
+from PIL import Image
+image_1=Image.open("data/images/pain_epices.jpg")
+st.image(image_1)

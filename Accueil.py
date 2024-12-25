@@ -6,17 +6,8 @@ from datetime import datetime, date
 
        
 # Title of the Streamlit app
-st.title("Liste des produits de la ferme Au Champ du Puits")
+st.title("# :rainbow[Bienvenue au Champs du Puits]")
 
-# Basic settings
-root_dir = os.path.dirname(__file__)
-products_file_path = os.path.join(root_dir, "products.xlsx")
+st.write("Sur ce site vous pourrez trouver la liste des produits de la ferme Au Champ du Puits, organisés par catégorie")
+st.write("Les différentes catégories sont disponibles dans le menu à gauche")
 
-
-# Get list of products
-products_df = pd.read_excel(products_file_path, sheet_name="products")
-
-
-st.dataframe(products_df)
-
-st.table(products_df)

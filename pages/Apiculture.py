@@ -41,36 +41,34 @@ cell_renderer =  JsCode("""
 thumbnail_renderer = JsCode("""
         class ThumbnailRenderer {
             init(params) {
-
             this.eGui = document.createElement('img');
             this.eGui.setAttribute('src', params.value);
             this.eGui.setAttribute('width', '100');
             this.eGui.setAttribute('height', 'auto');
             }
-                getGui() {
-                console.log(this.eGui);
-
-                return this.eGui;
+            getGui() {
+            return this.eGui;
             }
         }
     """)
 
 gb.configure_column(
-    "Image",
-    headerName="Image_Path",
+    "Image_Path",
+    headerName="wut",
     width=100,
     cellRenderer=thumbnail_renderer
 )
 
 
 
-#grid = AgGrid(df,
-#            gridOptions=gb.build(),
-#            updateMode=GridUpdateMode.VALUE_CHANGED,
-#            allow_unsafe_jscode=True)
+grid = AgGrid(df,
+            gridOptions=gb.build(),
+            updateMode=GridUpdateMode.VALUE_CHANGED,
+            allow_unsafe_jscode=True)
 
-vgo = gb.build()
-AgGrid(df, gridOptions=vgo, theme='streamlit', height=150, allow_unsafe_jscode=True )
+# Works locally but not streamlit community cloud
+#vgo = gb.build()
+#AgGrid(df, gridOptions=vgo, theme='streamlit', height=150, allow_unsafe_jscode=True )
 
 
 if False:

@@ -22,7 +22,7 @@ df = pd.read_excel(products_file_path, sheet_name="apiculture")
 
 gb = GridOptionsBuilder.from_dataframe(df, editable=True)
 gb.configure_grid_options(rowHeight=100)
-gb.configure_pagination(paginationAutoPageSize=False)  # Disable pagination
+#gb.configure_pagination(paginationAutoPageSize=False)  # Disable pagination
 
 thumbnail_renderer = JsCode("""
         class ThumbnailRenderer {
@@ -50,6 +50,7 @@ grid = AgGrid(df,
             updateMode=GridUpdateMode.VALUE_CHANGED,
             allow_unsafe_jscode=True,
             fit_columns_on_grid_load=True,
+            height = auto,
             columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,
             custom_css={'.ag-row .ag-cell': {'display': 'flex',
                                      'justify-content': 'center',

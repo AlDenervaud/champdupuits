@@ -16,9 +16,10 @@ products_file_path = os.path.join(root_dir, "products.xlsx")
 # Get list of products
 df = pd.read_excel(products_file_path, sheet_name="apiculture")
 
-st.dataframe(df)
+### Display solution 2.0
+# https://discuss.streamlit.io/t/streamlit-aggrid-version-creating-an-aggrid-with-columns-with-embedded-urls/39640
+# https://discuss.streamlit.io/t/add-image-and-header-to-streamlit-dataframe-table/36065/3
 
-### Solution 2.0
 gb = GridOptionsBuilder.from_dataframe(df, editable=True)
 gb.configure_grid_options(rowHeight=100)
 

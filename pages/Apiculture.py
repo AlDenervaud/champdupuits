@@ -1,8 +1,8 @@
 import os
 import streamlit as st
 import pandas as pd
-#from fpdf import FPDF
-#from datetime import datetime, date
+from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
+from st_aggrid.shared import JsCode
 
 # Title of the Streamlit app
 st.title("Liste des produits laitiers")
@@ -14,9 +14,9 @@ products_file_path = os.path.join(root_dir, "products.xlsx")
 
 
 # Get list of products
-products_df = pd.read_excel(products_file_path, sheet_name="apiculture")
+df = pd.read_excel(products_file_path, sheet_name="apiculture")
 
-st.dataframe(products_df)
+st.dataframe(df)
 
 if False:
     # Function to convert image paths into HTML <img> tags
@@ -31,7 +31,40 @@ if False:
     st.write(products_df.to_html(escape=False), unsafe_allow_html=True)
 
 
-if True:
+### Solution 2.0
+gb = GridOptionsBuilder.from_dataframe(df, editable=True)
+
+cell_renderer =  JsCode("""
+                        function(params) {return `<a href=${params.value} target="_blank">${params.value}</a>`}
+                        """)
+
+gb.configure_column(
+    "Image",
+    headerName="Image_Path",
+    width=100,
+    cellRenderer=JsCode("""
+        class UrlCellRenderer {
+          init(params) {
+            this.eGui = document.createElement('a');
+            this.eGui.innerText = 'SomeText';
+            this.eGui.setAttribute('href', params.value);
+            this.eGui.setAttribute('style', "text-decoration:none");
+            this.eGui.setAttribute('target', "_blank");
+          }
+          getGui() {
+            return this.eGui;
+          }
+        }
+    """)
+)
+
+grid = AgGrid(df,
+            gridOptions=gb.build(),
+            updateMode=GridUpdateMode.VALUE_CHANGED,
+            allow_unsafe_jscode=True)
+
+
+if False:
     # Loop through the DataFrame to display images with corresponding names
     for index, row in products_df.iterrows():
         nom = row["Nom"]

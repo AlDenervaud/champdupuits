@@ -12,5 +12,5 @@ st.write("Sur ce site vous pourrez trouver la liste des produits de la ferme Au 
 st.write("Les différentes catégories sont disponibles dans le menu à gauche")
 
 
-image_url = "https://github.com/AlDenervaud/champdupuits/main/data/images/pain_epices.jpg"
+image_url = "https://github.com/AlDenervaud/champdupuits/blob/main/data/images/pain_epices.jpg"
 st.image(image_url, caption="Example Image", use_column_width=True)

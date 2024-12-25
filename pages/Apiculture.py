@@ -38,26 +38,31 @@ cell_renderer =  JsCode("""
                         function(params) {return `<a href=${params.value} target="_blank">${params.value}</a>`}
                         """)
 
-gb.configure_column(
-    "Image",
-    headerName="Image_Path",
-    width=100,
-    cellRenderer=JsCode("""
-        class UrlCellRenderer {
-          init(params) {
+thumbnail_renderer = JsCode("""
+        class ThumbnailRenderer {
+            init(params) {
+
             this.eGui = document.createElement('img');
             this.eGui.setAttribute('src', params.value);
             this.eGui.setAttribute('width', '100');
             this.eGui.setAttribute('height', 'auto');
-            this.eGui.setAttribute('style', "text-decoration:none");
-          }
+            }
                 getGui() {
                 console.log(this.eGui);
+
                 return this.eGui;
             }
         }
     """)
+
+gb.configure_column(
+    "Image",
+    headerName="Image_Path",
+    width=100,
+    cellRenderer=thumbnail_renderer
 )
+
+
 
 grid = AgGrid(df,
             gridOptions=gb.build(),

@@ -52,9 +52,16 @@ grid = AgGrid(df,
             fit_columns_on_grid_load=True,
             height = auto,
             columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,
-            custom_css={'.ag-row .ag-cell': {'display': 'flex',
-                                     'justify-content': 'center',
-                                     'align-items': 'center'},
-                                     '.ag-header-cell-label': {'justify-content': 'center'}}
+            custom_css={'.ag-row .ag-cell': {
+                                             'display': 'flex',
+                                             'justify-content': 'center',
+                                             'align-items': 'center'
+                                            },
+                        '.ag-header-cell-label': {
+                                                  'justify-content': 'center'
+                                                 },
+                        "#gridToolBar": {"padding-bottom": "0px !important"
+                                        }
+                        }
              )
 

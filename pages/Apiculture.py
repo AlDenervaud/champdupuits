@@ -64,10 +64,13 @@ gb.configure_column(
 
 
 
-grid = AgGrid(df,
-            gridOptions=gb.build(),
-            updateMode=GridUpdateMode.VALUE_CHANGED,
-            allow_unsafe_jscode=True)
+#grid = AgGrid(df,
+#            gridOptions=gb.build(),
+#            updateMode=GridUpdateMode.VALUE_CHANGED,
+#            allow_unsafe_jscode=True)
+
+vgo = gb.build()
+AgGrid(df, gridOptions=vgo, theme='streamlit', height=150, allow_unsafe_jscode=True )
 
 
 if False:

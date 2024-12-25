@@ -13,4 +13,4 @@ st.write("Les différentes catégories sont disponibles dans le menu à gauche")
 
 
 image_url = "https://github.com/AlDenervaud/champdupuits/blob/main/data/images/pain_epices.jpg"
-st.image(image_url, caption="Example Image", use_column_width=True)
+st.image(image_url, caption="Example Image")

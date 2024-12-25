@@ -33,6 +33,7 @@ if False:
 
 ### Solution 2.0
 gb = GridOptionsBuilder.from_dataframe(df, editable=True)
+gb.configure_grid_options(rowHeight=100)
 
 cell_renderer =  JsCode("""
                         function(params) {return `<a href=${params.value} target="_blank">${params.value}</a>`}

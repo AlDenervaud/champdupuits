@@ -43,8 +43,8 @@ thumbnail_renderer = JsCode("""
             init(params) {
             this.eGui = document.createElement('img');
             this.eGui.setAttribute('src', params.value);
-            this.eGui.setAttribute('width', '100');
-            this.eGui.setAttribute('height', 'auto');
+            this.eGui.setAttribute('width', 'auto');
+            this.eGui.setAttribute('height', '100');
             }
             getGui() {
             return this.eGui;

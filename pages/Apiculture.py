@@ -1,8 +1,8 @@
 import os
 import streamlit as st
 import pandas as pd
-from fpdf import FPDF
-from datetime import datetime, date
+#from fpdf import FPDF
+#from datetime import datetime, date
 
 # Title of the Streamlit app
 st.title("Liste des produits laitiers")

@@ -18,26 +18,9 @@ df = pd.read_excel(products_file_path, sheet_name="apiculture")
 
 st.dataframe(df)
 
-if False:
-    # Function to convert image paths into HTML <img> tags
-    def path_to_image_html(path):
-        return f'<img src="{path}" width="60">'
-    
-    # Apply the HTML formatting
-    products_df['Image'] = products_df['Image_Path'].apply(lambda x: f'<img src="{x}" width="100">')
-    st.table(products_df)
-    
-    # Render HTML
-    st.write(products_df.to_html(escape=False), unsafe_allow_html=True)
-
-
 ### Solution 2.0
 gb = GridOptionsBuilder.from_dataframe(df, editable=True)
 gb.configure_grid_options(rowHeight=100)
-
-cell_renderer =  JsCode("""
-                        function(params) {return `<a href=${params.value} target="_blank">${params.value}</a>`}
-                        """)
 
 thumbnail_renderer = JsCode("""
         class ThumbnailRenderer {
@@ -63,5 +46,6 @@ gb.configure_column(
 grid = AgGrid(df,
             gridOptions=gb.build(),
             updateMode=GridUpdateMode.VALUE_CHANGED,
-            allow_unsafe_jscode=True)
+            allow_unsafe_jscode=True,
+            columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,)
 

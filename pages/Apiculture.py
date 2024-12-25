@@ -5,7 +5,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
 from st_aggrid.shared import JsCode, ColumnsAutoSizeMode
 
 # Title of the Streamlit app
-st.title("Liste des produits laitiers")
+st.title("Liste des produits Apicoles :bee:")
 
 # Basic settings
 root_dir = os.path.dirname(os.path.dirname(__file__))

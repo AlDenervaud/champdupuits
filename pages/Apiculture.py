@@ -51,9 +51,10 @@ gb.configure_column(
             this.eGui.setAttribute('height', 'auto');
             this.eGui.setAttribute('style', "text-decoration:none");
           }
-          getGui() {
-            return this.eGui;
-          }
+                getGui() {
+                console.log(this.eGui);
+                return this.eGui;
+            }
         }
     """)
 )

@@ -38,4 +38,4 @@ if True:
         st.write(nom)
         st.write(row["Prix"])
         #st.image(row['Image_Path'], caption=nom)
-        st.image("data/images/pain_epices.jpg", caption="default")
+        st.image("data/images/apiculture/pain_epices.jpg", caption="default")

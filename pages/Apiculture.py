@@ -22,6 +22,7 @@ df = pd.read_excel(products_file_path, sheet_name="apiculture")
 
 gb = GridOptionsBuilder.from_dataframe(df, editable=True)
 gb.configure_grid_options(rowHeight=100)
+gb.configure_pagination(paginationAutoPageSize=False)  # Disable pagination
 
 thumbnail_renderer = JsCode("""
         class ThumbnailRenderer {

@@ -20,5 +20,5 @@ GAEC Au Champ du Puits<br>
 email: ...\n
 Instagram: ...
 """
-st.write(contact_list)
+st.markdown(contact_list)
 

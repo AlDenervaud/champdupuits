@@ -47,5 +47,10 @@ grid = AgGrid(df,
             gridOptions=gb.build(),
             updateMode=GridUpdateMode.VALUE_CHANGED,
             allow_unsafe_jscode=True,
-            columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,)
+            columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,
+            custom_css={'.ag-row .ag-cell': {'display': 'flex',
+                                     'justify-content': 'center',
+                                     'align-items': 'center'},
+                                     '.ag-header-cell-label': {'justify-content': 'center'}}
+             )
 

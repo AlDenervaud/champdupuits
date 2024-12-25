@@ -37,5 +37,5 @@ if True:
         nom = row["Nom"]
         st.write(nom)
         st.write(row["Prix"])
-        st.image(row['Image_Path'], caption=nom)
-       #st.image("data/images/pain_epices.jpg", caption="test 2")
+        #st.image(row['Image_Path'], caption=nom)
+        st.image("data/images/pain_epices.jpg", caption="default")

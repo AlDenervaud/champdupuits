@@ -13,10 +13,7 @@ st.write("Les différentes catégories sont disponibles dans le menu à gauche")
 
 
 st.markdown("## Contact")
-st.markdown("This is line 1.  \nThis is line 2.  \nThis is line 3.")
-st.write("""<div>GAEC Au Champ du Puits<br>
-211 chemin de la Fontaine<br>
-01430, Peyriat</div>""")
+st.markdown("GAEC Au Champ du Puits  \n211 chemin de la Fontaine  \n01430, Peyriat")
 contact_list = """
 email: ...\n
 Instagram: ...

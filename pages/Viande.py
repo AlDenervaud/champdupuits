@@ -5,7 +5,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
 from st_aggrid.shared import JsCode, ColumnsAutoSizeMode
 
 # Title of the Streamlit app
-st.title("Liste des produits Apicoles :bee:")
+st.title("Liste des viandes :cow:  :pig:")
 
 # Basic settings
 root_dir = os.path.dirname(os.path.dirname(__file__))
@@ -14,7 +14,7 @@ products_file_path = os.path.join(root_dir, "products.xlsx")
 
 
 # Get list of products
-df = pd.read_excel(products_file_path, sheet_name="apiculture")
+df = pd.read_excel(products_file_path, sheet_name="viande")
 
 ### Display solution 2.0
 # https://discuss.streamlit.io/t/streamlit-aggrid-version-creating-an-aggrid-with-columns-with-embedded-urls/39640

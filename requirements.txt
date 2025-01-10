@@ -5,3 +5,5 @@ numpy
 matplotlib
 openpyxl
 streamlit-aggrid
+folium
+streamlit-folium

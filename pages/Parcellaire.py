@@ -6,7 +6,7 @@ import json
 
 
 # Streamlit app configuration
-st.title("Interactive Shapefile Viewer and Attribute Editor")
+st.title("Carte du parcellaire")
 
 # Upload shapefile (multiple files including .shp, .shx, .dbf)
 shapefile = st.file_uploader("Upload a Shapefile (multiple files: .shp, .shx, .dbf, etc.)", type=["zip"])

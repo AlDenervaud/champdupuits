@@ -16,12 +16,12 @@ shapefile = st.file_uploader("Upload a Shapefile (multiple files: .shp, .shx, .d
 def style_function(feature):
     exploite_value = feature['properties']['exploite']
     return {
-        'fillColor': 'green' if exploite_value == 1 else 'red',  # Fill color
-        'color': 'blue' if exploite_value == 1 else 'black',     # Stroke color (edge)
-        'weight': 0.5,                                             # Stroke thickness
-        'fillOpacity': 0.7 if exploite_value == 1 else 0.2,      # Fill opacity
-        'opacity': 0.8 if exploite_value == 1 else 0.6,          # Stroke opacity
-        'dashArray': '5, 5' if exploite_value == 0 else '1',     # Optional: Dash pattern for edges
+        'fillColor': 'green' if exploite_value == 'oui' else 'red',  # Fill color
+        'color': 'black',                                            # Stroke color (edge)
+        'weight': 0.5,                                               # Stroke thickness
+        'fillOpacity': 0.7 if exploite_value == 'oui' else 0.2,      # Fill opacity
+        'opacity': 0.8 if exploite_value == 'oui' else 0.6,          # Stroke opacity
+        'dashArray': '5, 5' if exploite_value == 'non' else '1',     # Optional: Dash pattern for edges
     }
         
 if shapefile:

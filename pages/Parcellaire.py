@@ -49,8 +49,8 @@ if shapefile:
             name="Styled GeoJSON",
             style_function=style_function,
             tooltip=folium.GeoJsonTooltip(
-                fields=["geo_parcel"],                # Specify the column to display
-                aliases=["Parcel: "],                 # Label before the value (optional)
+                fields=["geo_parcel", "exploite"],                # Specify the column to display
+                aliases=["Parcelle: ", "Exploitée: "],                 # Label before the value (optional)
                 style="font-size: 24px;",
             )
         ).add_to(m)

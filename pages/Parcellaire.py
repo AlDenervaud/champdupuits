@@ -19,7 +19,7 @@ def style_function(feature):
         'fillColor': 'green' if exploite_value == 'oui' else 'red',  # Fill color
         'color': 'black',                                            # Stroke color (edge)
         'weight': 0.5,                                               # Stroke thickness
-        'fillOpacity': 0.7 if exploite_value == 'oui' else 0.2,      # Fill opacity
+        'fillOpacity': 0.7 if exploite_value == 'oui' else 0.4,      # Fill opacity
         'opacity': 0.8 if exploite_value == 'oui' else 0.6,          # Stroke opacity
         'dashArray': '5, 5' if exploite_value == 'non' else '1',     # Optional: Dash pattern for edges
     }

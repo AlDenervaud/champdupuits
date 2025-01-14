@@ -38,7 +38,7 @@ def generate_pdf(df):
     return buffer
 
 # Title of the Streamlit app
-st.title("Liste des produits Apicoles :bee:")
+st.title("Générer une commande pour les produits de la ferme")
 
 # Basic settings
 root_dir = os.path.dirname(os.path.dirname(__file__))

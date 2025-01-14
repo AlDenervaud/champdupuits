@@ -87,7 +87,7 @@ grid = AgGrid(df,
             allow_unsafe_jscode=True,
             fit_columns_on_grid_load=True,
             columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,
-            height=800,
+            height=600,
             custom_css={'.ag-row .ag-cell': {
                                              'display': 'flex',
                                              'justify-content': 'center',

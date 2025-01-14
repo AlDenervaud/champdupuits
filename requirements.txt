@@ -7,3 +7,5 @@ openpyxl
 streamlit-aggrid
 folium
 streamlit-folium
+reportlab
+io

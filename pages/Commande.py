@@ -39,7 +39,7 @@ def generate_pdf(df):
 
 # Title of the Streamlit app
 st.title("Générer une commande pour les produits de la ferme")
-st.markdown("""### Sélectionnez les produits à ajouter à la commande dans la liste ci-dessous (vous pouvez utiliser les filtres pour faciliter la recherche)
+st.markdown("""Sélectionnez les produits à ajouter à la commande dans la liste ci-dessous (vous pouvez utiliser les filtres pour faciliter la recherche)
 et ENSUITE spécifiez la quantité. Tout ajout de produit à la sélection réinitialise les quantité.""")
 
 # Basic settings

@@ -50,12 +50,17 @@ def GeneratePDF(df, client_name):
     # Create a PDF
     pdf = FPDF()
     pdf.add_page()
-    
-    #font_path = r"c:\ALDE\Programs\Streamlit\ChampDuPuits\products\data\Arial Unicode MS Regular.ttf"
-    #font_path = r"data/fonts/Arial Unicode MS Regular.ttf"
-    font_path = r"https://github.com/AlDenervaud/champdupuits/raw/refs/heads/main/data/fonts/Arial%20Unicode%20MS%20Regular.ttf"
-    pdf.add_font("Arial_unicode", '', font_path, uni=True)
-    st.success("Font added with success")
+
+    uni_font = False
+    if uni_font:
+        #font_path = r"c:\ALDE\Programs\Streamlit\ChampDuPuits\products\data\Arial Unicode MS Regular.ttf"
+        font_path = "data/fonts/Arial Unicode MS Regular.ttf"
+        #font_path = r"https://github.com/AlDenervaud/champdupuits/raw/refs/heads/main/data/fonts/Arial%20Unicode%20MS%20Regular.ttf"
+        pdf.add_font("Arial_unicode", '', font_path, uni=True)
+        st.success("Font added with success")
+        font = "Arial_unicode"
+    else:
+        font = "Arial"
     
     # PDF settings
     pdf.set_left_margin(20)
@@ -71,11 +76,11 @@ def GeneratePDF(df, client_name):
     total_width = 45
     
     # Add title
-    pdf.set_font("Arial_unicode", "", size=20)
+    pdf.set_font(font, "", size=20)
     pdf.cell(170, 10, txt="Bon de commande", ln=True, align="C")
     pdf.cell(170, 10, txt="GAEC Champ du Puits", ln=True, align="C")
     pdf.ln(30)
-    pdf.set_font("Arial_unicode", size=12)
+    pdf.set_font(font, size=12)
     
     # Add details
     pdf.cell(200, linebreak_height, txt="Client: {}".format(client_name), ln=True, align="L")

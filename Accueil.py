@@ -1,22 +1,23 @@
 import os
 import streamlit as st
 import pandas as pd
-#from fpdf import FPDF
-from datetime import datetime, date
-
        
 # Title of the Streamlit app
 st.title(":rainbow[Bienvenue au Champs du Puits]")
 
-st.write("Sur ce site vous pourrez trouver la liste des produits de la ferme Au Champ du Puits, organisés par catégorie")
-st.write("Les différentes catégories sont disponibles dans le menu à gauche")
-
+st.markdown("""Sur ce site vous pourrez trouver la liste des produits de la ferme Au Champ du Puits
+ et créer un bon de commande à télécharger. Envoyez le bon de commande à l'adresse email ci-dessous, 
+ nous tâcherons de vous répondre au plus vite!
+ 
+ La liste est indicative uniquement et ne reflète pas l'état des stocks,
+ il se peut que certains produits soient indisponibles.""")
 
 st.markdown("### Contact")
 st.markdown("GAEC Au Champ du Puits  \n211 chemin de la Fontaine  \n01430, Peyriat")
+
 contact_list = """
 email: ...\n
 Instagram: ...
 """
-st.markdown(contact_list)
 
+st.markdown(contact_list)

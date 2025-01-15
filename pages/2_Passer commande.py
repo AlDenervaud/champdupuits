@@ -166,6 +166,12 @@ try:
     # Generate PDF
     pdf_buffer = GeneratePDF(pd.DataFrame(final_order), client_name)
     st.success("I get here")
+
+    # Embed PDF to display it:
+    base64_pdf = b64encode(gen_pdf()).decode("utf-8")
+    pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="400" type="application/pdf">'
+    st.markdown(pdf_display, unsafe_allow_html=True)
+
     # Download button
     if st.download_button(label="Télécharger le bon de commande",
                     type="primary",

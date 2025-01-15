@@ -154,9 +154,9 @@ try:
     st.session_state["client_name"] = client_name
     
     # Generate PDF
-    st.success("I get here")
-    pdf_buffer = GeneratePDF(pd.DataFrame(final_order), client_name)
     
+    pdf_buffer = GeneratePDF(pd.DataFrame(final_order), client_name)
+    st.success("I get here")
     # Download button
     if st.download_button(label="Télécharger le bon de commande",
                     type="primary",

@@ -51,7 +51,7 @@ def GeneratePDF(df, client_name):
     pdf = FPDF()
     pdf.add_page()
 
-    uni_font = False
+    uni_font = True
     if uni_font:
         #font_path = r"c:\ALDE\Programs\Streamlit\ChampDuPuits\products\data\Arial Unicode MS Regular.ttf"
         font_path = "data/fonts/Arial Unicode MS Regular.ttf"

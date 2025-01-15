@@ -129,11 +129,14 @@ def GeneratePDF(df, client_name):
         add_table_rows(sub_df)
 
     #pdf.output("hours_report.pdf")
-    
-    pdf_output = BytesIO()
-    pdf.output(pdf_output)
-    pdf_output.seek(0)
-    return pdf_output
+
+    if False:
+        pdf_output = BytesIO()
+        pdf.output(pdf_output)
+        pdf_output.seek(0)
+        return pdf_output
+    else:
+        return bytes(pdf.output())
 
 
 # Title of the Streamlit app

@@ -136,9 +136,10 @@ def GeneratePDF(df, client_name):
         pdf_output.seek(0)
         return pdf_output
     else:
+        pdf_output = pdf.output(dest='S').encode('latin1')
         test = bytes(pdf.output())
         st.error("DEBUG")
-        return test
+        return pdf_output
 
 
 # Title of the Streamlit app

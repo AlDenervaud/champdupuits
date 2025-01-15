@@ -154,6 +154,7 @@ try:
     st.session_state["client_name"] = client_name
     
     # Generate PDF
+    st.success("I get here")
     pdf_buffer = GeneratePDF(pd.DataFrame(final_order), client_name)
     
     # Download button

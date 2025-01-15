@@ -129,6 +129,7 @@ def GeneratePDF(df, client_name):
         add_table_rows(sub_df)
 
     #pdf.output("hours_report.pdf")
+    st.error("DEBUG")
 
     if False:
         pdf_output = BytesIO()

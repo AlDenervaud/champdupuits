@@ -53,11 +53,8 @@ def GeneratePDF(df, client_name):
 
     uni_font = True
     if uni_font:
-        #font_path = r"c:\ALDE\Programs\Streamlit\ChampDuPuits\products\data\Arial Unicode MS Regular.ttf"
         font_path = "data/fonts/Arial Unicode MS Regular.ttf"
-        #font_path = r"https://github.com/AlDenervaud/champdupuits/raw/refs/heads/main/data/fonts/Arial%20Unicode%20MS%20Regular.ttf"
         pdf.add_font("Arial_unicode", '', font_path, uni=True)
-        st.success("Font added with success")
         font = "Arial_unicode"
     else:
         font = "Arial"
@@ -128,18 +125,13 @@ def GeneratePDF(df, client_name):
         pdf.cell(200, linebreak_height, txt="{}".format(category), ln=True, align="L", fill=False)
         add_table_rows(sub_df)
 
-    #pdf.output("hours_report.pdf")
-
-    if False:
+    if False: # works locally only
         pdf_output = BytesIO()
         pdf.output(pdf_output)
         pdf_output.seek(0)
         return pdf_output
     else:
         pdf_output = pdf.output(dest='S').encode('latin1')
-        st.error("DEBUG 0")
-        #test = bytes(pdf.output())
-        st.error("DEBUG 1")
         return pdf_output
 
 
@@ -169,7 +161,6 @@ try:
     
     # Generate PDF
     pdf_buffer = GeneratePDF(pd.DataFrame(final_order), client_name)
-    st.success("I get here")
 
     # Embed PDF to display it:
     #base64_pdf = b64encode(gen_pdf()).decode("utf-8")

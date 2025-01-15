@@ -138,7 +138,7 @@ def GeneratePDF(df, client_name):
     else:
         pdf_output = pdf.output(dest='S').encode('latin1')
         st.error("DEBUG 0")
-        test = bytes(pdf.output())
+        #test = bytes(pdf.output())
         st.error("DEBUG 1")
         return pdf_output
 

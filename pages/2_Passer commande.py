@@ -54,6 +54,7 @@ def GeneratePDF(df, client_name):
     #font_path = r"c:\ALDE\Programs\Streamlit\ChampDuPuits\products\data\Arial Unicode MS Regular.ttf"
     font_path = r"data/fonts/Arial Unicode MS Regular.ttf"
     pdf.add_font("Arial_unicode", '', font_path, uni=True)
+    st.success("Font added with success")
     
     # PDF settings
     pdf.set_left_margin(20)
@@ -154,7 +155,6 @@ try:
     st.session_state["client_name"] = client_name
     
     # Generate PDF
-    
     pdf_buffer = GeneratePDF(pd.DataFrame(final_order), client_name)
     st.success("I get here")
     # Download button

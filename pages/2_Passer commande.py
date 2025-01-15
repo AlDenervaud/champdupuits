@@ -52,7 +52,8 @@ def GeneratePDF(df, client_name):
     pdf.add_page()
     
     #font_path = r"c:\ALDE\Programs\Streamlit\ChampDuPuits\products\data\Arial Unicode MS Regular.ttf"
-    font_path = r"data/fonts/Arial Unicode MS Regular.ttf"
+    #font_path = r"data/fonts/Arial Unicode MS Regular.ttf"
+    font_path = r"https://github.com/AlDenervaud/champdupuits/raw/refs/heads/main/data/fonts/Arial%20Unicode%20MS%20Regular.ttf"
     pdf.add_font("Arial_unicode", '', font_path, uni=True)
     st.success("Font added with success")
     

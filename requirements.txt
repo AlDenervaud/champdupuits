@@ -4,6 +4,7 @@ geopandas
 numpy
 matplotlib
 openpyxl
+fpdf
 streamlit-aggrid
 streamlit-folium
 streamlit_js_eval

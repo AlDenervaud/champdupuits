@@ -43,7 +43,6 @@ if shapefile:
         geojson_data = json.loads(gdf.to_json())
         
         # Initial map display
-        st.subheader("Geometries Map")
         m = folium.Map(location=[gdf.geometry.centroid.y.mean(), gdf.geometry.centroid.x.mean()], zoom_start=13)
 
         # Add GeoJson layer with the custom style function

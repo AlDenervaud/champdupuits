@@ -81,7 +81,7 @@ if shapefile:
                 control = True
                ).add_to(m)
                        
-        map_display = st_folium(m, width=1000, height=500)
+        map_display = st_folium(m, width=800, height=500)
         
         # Capture the clicked feature data from the map using the `last_clicked` field in `map_display`
         if map_display and 'last_object_clicked_tooltip' in map_display:

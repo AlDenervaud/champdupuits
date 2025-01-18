@@ -73,6 +73,14 @@ if shapefile:
             </script>
             """)
         )
+
+        tile = folium.TileLayer(
+                tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+                attr = 'Esri',
+                name = 'Esri Satellite',
+                overlay = False,
+                control = True
+               ).add_to(m)
                        
         map_display = st_folium(m, width=1000, height=600)
         

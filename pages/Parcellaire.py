@@ -12,6 +12,12 @@ st.title("Carte du parcellaire")
 shapefile = st.file_uploader("Upload a Shapefile (multiple files: .shp, .shx, .dbf, etc.)", type=["zip"])
 
 
+shapefile_path = r"https://github.com/AlDenervaud/champdupuits/raw/refs/heads/main/data/parcelles_v4.zip"
+#with open(shapefile_path, "wb") as f:
+#    f.write(shapefile.read())
+gdf_a = gpd.read_file(shapefile_path)
+
+
 # Define a style function based on "exploite" attribute
 def style_function(feature):
     exploite_value = feature['properties']['exploite']

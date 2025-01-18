@@ -9,14 +9,10 @@ import json
 st.title("Carte du parcellaire")
 
 # Upload shapefile (multiple files including .shp, .shx, .dbf)
-shapefile = st.file_uploader("Upload a Shapefile (multiple files: .shp, .shx, .dbf, etc.)", type=["zip"])
-
+# shapefile = st.file_uploader("Upload a Shapefile (multiple files: .shp, .shx, .dbf, etc.)", type=["zip"])
+shapefile = True
 
 shapefile_path = r"https://github.com/AlDenervaud/champdupuits/raw/refs/heads/main/data/parcelles_v4.zip"
-#with open(shapefile_path, "wb") as f:
-#    f.write(shapefile.read())
-gdf_a = gpd.read_file(shapefile_path)
-
 
 # Define a style function based on "exploite" attribute
 def style_function(feature):
@@ -33,9 +29,10 @@ def style_function(feature):
 if shapefile:
     try:
         # Extract and read the uploaded zip file
-        with open("uploaded_shapefile.zip", "wb") as f:
-            f.write(shapefile.read())
-        gdf = gpd.read_file("zip://uploaded_shapefile.zip")
+        #with open("uploaded_shapefile.zip", "wb") as f:
+        #    f.write(shapefile.read())
+        #gdf = gpd.read_file("zip://uploaded_shapefile.zip")
+        gdf = gpd.read_file(shapefile_path)
         
         # Ensure correct CRS (change to your target CRS if known)
         target_crs = "EPSG:4326"  # WGS 84

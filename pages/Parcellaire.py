@@ -86,10 +86,11 @@ if shapefile:
         # Capture the clicked feature data from the map using the `last_clicked` field in `map_display`
         if map_display and 'last_object_clicked_tooltip' in map_display:
             clicked_data = map_display['last_object_clicked_tooltip']
+            st.markdown("#### Sélection")
             try:
                 clicked_data = clicked_data.replace(" ", "").split("\n")
                 feature_name = [i for i in clicked_data if i != ""][1]
-                st.markdown("### Sélection : {}".format(feature_name))
+                st.success(feature_name)
             except Exception as e:
                 st.warning("Aucune parcelle sélectionée")
 

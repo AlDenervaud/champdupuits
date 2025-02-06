@@ -19,7 +19,7 @@ contact_list = """
 email: lechampdupuits@gmail.com\n
 """
 
-st.page_link("lechampdupuits@gmail.com", label="-> email <-")
+st.markdown('<a href="mailto:lechampdupuits@gmail.com">Contact us !</a>', unsafe_allow_html=True)
 st.page_link("https://www.instagram.com/lechampdupuits/", label="-> Instagram <-")
 
 st.markdown(contact_list)

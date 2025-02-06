@@ -17,7 +17,7 @@ def UpdateOrderFinal(order):
     order = order[order["Nom"].str.strip() != ""]
     
     # Updates total price based on price and quantity
-    order["price_temp"] = order["Prix"].apply(lambda x: float(x.split(" ")[0]))
+    order["price_temp"] = order["Prix"].apply(lambda x: float(x.split(" ")[0].replace(",", ".")))
     order["Quantité"] = pd.to_numeric(order["Quantité"], errors='coerce')
     order["Total"] = order["price_temp"] * order["Quantité"]
     

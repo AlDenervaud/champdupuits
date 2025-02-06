@@ -153,6 +153,7 @@ try:
     
     # Final preview before download
     st.markdown("### Preview")
+    edited_order["Quantité"] = edited_order["Quantité"].apply(lambda x: x.replace(",", "."))
     final_order = UpdateOrderFinal(edited_order)
     st.dataframe(final_order, hide_index=True, use_container_width=True)
     

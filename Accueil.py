@@ -16,7 +16,7 @@ st.markdown("### Contact")
 st.markdown("GAEC Au Champ du Puits  \n211 chemin de la Fontaine  \n01430, Peyriat")
 
 contact_list = """
-email: ...\n
+email: lechampdupuits@gmail.com\n
 Instagram: ...
 """
 

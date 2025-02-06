@@ -139,7 +139,7 @@ def GeneratePDF(df, client_name):
 st.title("Valider la commande et télécharger le bon")
 st.markdown("""Vous pouvez modifier les quantités dans la table ci-dessous.
 Pour retirer un produit du panier, indiquez 0 dans la colonne \"Quantité\".
-La commande finale s'affiche dans la table en bas de la page""")
+La commande finale s'affiche dans le tableau en bas de la page""")
 
 try:
     order_df = st.session_state["order_df"]

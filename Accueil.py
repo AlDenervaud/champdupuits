@@ -17,7 +17,8 @@ st.markdown("GAEC Au Champ du Puits  \n211 chemin de la Fontaine  \n01430, Peyri
 
 contact_list = """
 email: lechampdupuits@gmail.com\n
-Instagram: ...
 """
+
+st.page_link("https://www.instagram.com/lechampdupuits/", label="Instyagram, "icon"=👀)
 
 st.markdown(contact_list)

@@ -137,7 +137,7 @@ def GeneratePDF(df, client_name):
 
 # Title of the Streamlit app
 st.title("Valider la commande et télécharger le bon")
-st.markdown("""Vous pouvez modifier les quantités dans la table ci-dessous.
+st.markdown("""Vous pouvez modifier les quantités dans le tableau ci-dessous.
 Pour retirer un produit du panier, indiquez 0 dans la colonne \"Quantité\".
 La commande finale s'affiche dans le tableau en bas de la page""")
 

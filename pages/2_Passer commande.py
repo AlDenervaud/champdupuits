@@ -149,6 +149,12 @@ try:
         "Quantité",
         help="Renseignez la quantité",
         format="%d",)
+    # Function to apply styles
+    def highlight_column(s):
+        return ["background-color: yellow"] * len(s)
+    # Apply styling to "Age" column
+    order_df = order_df.style.apply(highlight_column, subset=["Quantité"])
+
     show_dict = {"Nom":"Nom", "Prix":"Prix", "Catégorie":"Catégorie", "Quantité":xx, "Total":None}
     edited_order = st.data_editor(order_df, hide_index=True, disabled=[col for col in order_df if col != "Quantité"], column_config=show_dict)
     

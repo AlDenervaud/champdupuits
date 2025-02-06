@@ -86,7 +86,7 @@ option = st.selectbox("Sélectionnez une catégorie de produits",
                     )
                     
 #filtered_df = df[df["Catégorie"].isin(option)]
-filtered_df = df[df["Catégorie"]==option]
+filtered_df = df[df["Catégorie"]==option].loc[:, df.columns != "Catégorie"]
 
 
 gb = GridOptionsBuilder.from_dataframe(filtered_df) #, editable=True)

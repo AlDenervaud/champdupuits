@@ -126,7 +126,7 @@ grid = AgGrid(filtered_df,
             height=400,
             custom_css={'.ag-row .ag-cell': {
                                              'display': 'flex',
-                                             'justify-content': 'center',
+                                             'justify-content': 'left',
                                              'align-items': 'center'
                                             },
                         '.ag-header-cell-label': {

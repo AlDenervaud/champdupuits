@@ -15,11 +15,6 @@ st.markdown("""Sur ce site vous pourrez trouver la liste des produits de la ferm
 st.markdown("### Contact")
 st.markdown("GAEC Au Champ du Puits  \n211 chemin de la Fontaine  \n01430, Peyriat")
 
-contact_list = """
-email: lechampdupuits@gmail.com\n
-"""
-
-st.markdown('<a href="mailto:lechampdupuits@gmail.com">Contact us !</a>', unsafe_allow_html=True)
+st.markdown('<a href="mailto:lechampdupuits@gmail.com">lechampdupuits@gmail.com</a>', unsafe_allow_html=True)
 st.page_link("https://www.instagram.com/lechampdupuits/", label="-> Instagram <-")
 
-st.markdown(contact_list)

@@ -19,6 +19,6 @@ contact_list = """
 email: lechampdupuits@gmail.com\n
 """
 
-st.page_link("https://www.instagram.com/lechampdupuits/", label="Instyagram, "icon"=👀)
+st.page_link("https://www.instagram.com/lechampdupuits/", label="Instagram", "icon"=👀)
 
 st.markdown(contact_list)

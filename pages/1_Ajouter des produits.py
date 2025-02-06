@@ -73,7 +73,7 @@ products_file_path = os.path.join(root_dir, "products.xlsx")
 
 # Get list of products
 df = pd.read_excel(products_file_path, sheet_name="products")
-df["Prix"] = df["Prix"].apply(lambda x: x if "/kg" in str(x).lower() else "{}€".format(x))
+df["Prix"] = df["Prix"].apply(lambda x: x if "/kg" in str(x).lower() else "{} €".format(x))
 
 ### Display solution 2.0
 # https://discuss.streamlit.io/t/streamlit-aggrid-version-creating-an-aggrid-with-columns-with-embedded-urls/39640

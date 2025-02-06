@@ -66,11 +66,11 @@ def GeneratePDF(df, client_name):
     linebreak_height = 10
     # Table
     cell_height = 10
-    product_width = 50
+    product_width = 60
     price_width = 30
     category_width = 25
-    quantity_width = 30
-    total_width = 45
+    quantity_width = 25
+    total_width = 40
     
     # Add title
     pdf.set_font(font, "", size=20)

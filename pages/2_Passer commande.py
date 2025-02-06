@@ -145,7 +145,7 @@ st.markdown("""Vous pouvez télécharger le bon et nous l'envoyer à lechampdupu
 try:
     order_df = st.session_state["order_df"]
     order_df["Quantité"] = order_df["Quantité"].apply(lambda x: str(x))
-    edited_order = st.data_editor(order_df, hide_index=True)
+    edited_order = st.data_editor(order_df, hide_index=True, disabled=[col for col in order_df if col != "Quantité"])
     
     # Reset order button
     if st.button("Réinitialiser la commande"):

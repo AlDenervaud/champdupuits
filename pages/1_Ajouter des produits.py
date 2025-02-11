@@ -161,6 +161,8 @@ except:
 if st.button("Ajouter la sélection à la commande"):
     try:
         if order_update is not None:
+            if order_update['Quantité'].isnull().any():
+                st.warning("Veuillez indiquer une quantité pour chaque élément")
             # Save to session state
             UpdateOrder(order_update)
             order_df = st.session_state["order_df"]

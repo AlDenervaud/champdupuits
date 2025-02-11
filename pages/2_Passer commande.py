@@ -147,13 +147,13 @@ try:
     order_df = st.session_state["order_df"]
     order_df["Quantité"] = order_df["Quantité"].apply(lambda x: str(float(x))) # -> does not show decimals
     #order_df["Quantité"] = order_df["Quantité"].astype(float) # -> 
-    xx = st.column_config.NumberColumn(
-        "Quantité",
-        help="Renseignez la quantité",
-        format="%d",)
+    #xx = st.column_config.NumberColumn(
+    #    "Quantité",
+    #    help="Renseignez la quantité",
+    #    format="%d",)
 
     show_dict = {"Nom":"Nom", "Prix":"Prix", "Catégorie":"Catégorie", "Quantité":xx, "Total":None}
-    edited_order = st.data_editor(order_df, hide_index=True, disabled=[col for col in order_df if col != "Quantité"], column_config=show_dict)
+    edited_order = st.data_editor(order_df, hide_index=True, disabled=[col for col in order_df if col != "Quantité"]) #, column_config=show_dict)
     
     # Reset order button
     if st.button("Réinitialiser la commande"):

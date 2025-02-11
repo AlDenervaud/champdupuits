@@ -149,7 +149,7 @@ try:
         st.write("Les produits sélectionnés s'affichent ci-dessous:")
 except:
     selected_df = pd.DataFrame(selected_rows)  # Properly create DataFrame from list of dicts
-    selected_df["Quantité"] = [1 for i in range(selected_df.shape[0])]
+    selected_df["Quantité"] = [1.0 for i in range(selected_df.shape[0])]
     # Cleaning
     selected_df.drop("Image_Path", axis=1, inplace=True)
     st.markdown("### Sélection")
@@ -160,12 +160,6 @@ except:
 if st.button("Ajouter la sélection à la commande"):
     try:
         if order_update is not None:
-            # Calculate totals
-            #command["total_temp"] = command["Prix"].apply(lambda x: float(x.split(" ")[0]))
-            #command["Total"] = command["total_temp"] * command["Quantité"]
-            #command = command._append({"Nom":"", "Prix":"", "Quantité":"", "Total":"{} €".format(command["Total"].sum())}, ignore_index=True)
-            # Cleaning
-            #command.drop("total_temp", axis=1, inplace=True)
             # Save to session state
             UpdateOrder(order_update)
             order_df = st.session_state["order_df"]

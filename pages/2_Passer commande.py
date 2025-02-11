@@ -140,7 +140,7 @@ def GeneratePDF(df, client_name, note):
 
 
 # Title of the Streamlit app
-st.title("##Valider la commande et télécharger le bon")
+st.markdown("##Valider la commande et télécharger le bon")
 st.markdown("""Vous pouvez télécharger le bon et nous l'envoyer à lechampdupuits@gmail.com.""")
 
 try:

@@ -153,7 +153,8 @@ except:
     selected_df["Quantité"] = np.nan #df['your_column'].astype(float) #[1.0 for i in range(selected_df.shape[0])]
     # Cleaning
     selected_df.drop("Image_Path", axis=1, inplace=True)
-    st.markdown("### Sélection")
+    st.markdown("#### Sélection")
+    st.markdown("Indiquez la quantité voulue pour chaque produit.")
     order_update = st.data_editor(selected_df, use_container_width=False, hide_index=True, disabled=[col for col in selected_df if col != "Quantité"])
 
 

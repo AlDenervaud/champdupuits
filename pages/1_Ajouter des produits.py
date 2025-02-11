@@ -154,7 +154,7 @@ except:
     # Cleaning
     selected_df.drop("Image_Path", axis=1, inplace=True)
     st.markdown("### Sélection")
-    order_update = st.data_editor(selected_df, use_container_width=False, hide_index=True)
+    order_update = st.data_editor(selected_df, use_container_width=False, hide_index=True, disabled=[col for col in selected_df if col != "Quantité"])
 
 
 # Button to generate and download PDF

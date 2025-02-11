@@ -149,7 +149,7 @@ try:
         st.write("Les produits sélectionnés s'affichent ci-dessous:")
 except:
     selected_df = pd.DataFrame(selected_rows)  # Properly create DataFrame from list of dicts
-    selected_df["Quantité"] = [1.0 for i in range(selected_df.shape[0])]
+    selected_df["Quantité"] = np.nan #df['your_column'].astype(float) #[1.0 for i in range(selected_df.shape[0])]
     # Cleaning
     selected_df.drop("Image_Path", axis=1, inplace=True)
     st.markdown("### Sélection")

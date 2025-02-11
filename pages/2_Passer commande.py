@@ -126,7 +126,7 @@ def GeneratePDF(df, client_name, note):
         add_table_rows(sub_df)
 
     # Add note
-    pdf.cell(200, linebreak_height, txt=note, ln=True, align="L", fill=False
+    pdf.cell(200, linebreak_height, txt=note, ln=True, align="L", fill=False)
 
     if False: # works locally only
         pdf_output = BytesIO()

@@ -144,8 +144,8 @@ st.markdown("""Vous pouvez télécharger le bon et nous l'envoyer à lechampdupu
 
 try:
     order_df = st.session_state["order_df"]
-    #order_df["Quantité"] = order_df["Quantité"].apply(lambda x: str(x))
-    order_df["Quantité"] = order_df["Quantité"].astype(float)
+    order_df["Quantité"] = order_df["Quantité"].apply(lambda x: str(x)) # -> does not show decimals
+    #order_df["Quantité"] = order_df["Quantité"].astype(float) # -> 
     xx = st.column_config.NumberColumn(
         "Quantité",
         help="Renseignez la quantité",

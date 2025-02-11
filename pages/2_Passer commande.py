@@ -152,8 +152,8 @@ try:
     #    help="Renseignez la quantité",
     #    format="%d",)
 
-    show_dict = {"Nom":"Nom", "Prix":"Prix", "Catégorie":"Catégorie", "Quantité":xx, "Total":None}
-    edited_order = st.data_editor(order_df, hide_index=True, disabled=[col for col in order_df if col != "Quantité"]) #, column_config=show_dict)
+    show_dict = {"Nom":"Nom", "Prix":"Prix", "Catégorie":"Catégorie", "Quantité":"Quantité (en kg ou nombre d\'unités)", "Total":None}
+    edited_order = st.data_editor(order_df, hide_index=True, disabled=[col for col in order_df if col != "Quantité"], column_config=show_dict)
     
     # Reset order button
     if st.button("Réinitialiser la commande"):

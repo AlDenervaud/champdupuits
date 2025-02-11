@@ -44,7 +44,7 @@ def ResetOrder():
     return
 
 
-def GeneratePDF(df, client_name):
+def GeneratePDF(df, client_name, note):
     # https://stackoverflow.com/questions/35668219/how-to-set-up-a-custom-font-with-custom-path-to-matplotlib-global-font/43647344#43647344
     
     # Create a PDF
@@ -125,6 +125,9 @@ def GeneratePDF(df, client_name):
         pdf.cell(200, linebreak_height, txt="{}".format(category), ln=True, align="L", fill=False)
         add_table_rows(sub_df)
 
+    # Add note
+    pdf.cell(200, linebreak_height, txt=note, ln=True, align="L", fill=False
+
     if False: # works locally only
         pdf_output = BytesIO()
         pdf.output(pdf_output)
@@ -166,10 +169,11 @@ try:
     
     # Retrieve client's name
     client_name = st.text_input("Votre nom: (appuyez sur entrée pour valider)", value="", placeholder="Veuillez entrer votre nom")
+    note = st.text_input("Ajouter une remarque (appuyez sur entrée pour valider)", value="", placeholder="...")
     st.session_state["client_name"] = client_name
     
     # Generate PDF
-    pdf_buffer = GeneratePDF(pd.DataFrame(final_order), client_name)
+    pdf_buffer = GeneratePDF(pd.DataFrame(final_order), client_name, note)
 
     # Embed PDF to display it:
     #base64_pdf = b64encode(gen_pdf()).decode("utf-8")

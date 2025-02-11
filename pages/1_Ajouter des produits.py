@@ -154,7 +154,8 @@ except:
     # Cleaning
     selected_df.drop("Image_Path", axis=1, inplace=True)
     st.markdown("#### Sélection")
-    st.markdown("Indiquez la quantité voulue pour chaque produit.")
+    st.markdown("Indiquez les quantités voulues dans le tableau ci-dessous.")
+    st.markdown("Pour retirer un produit du panier, indiquez 0 dans la colonne \"Quantité\".")
     selected_df.rename(columns={'Quantité':'Quantité (en kg ou nombre d\'unités)'}, inplace=True)
     order_update = st.data_editor(selected_df, use_container_width=False, hide_index=True, disabled=[col for col in selected_df if col != "Quantité (en kg ou nombre d\'unités)"])
     order_update.rename(columns={'Quantité (en kg ou nombre d\'unités)': 'Quantité'}, inplace=True)

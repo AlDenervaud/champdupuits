@@ -140,7 +140,7 @@ def GeneratePDF(df, client_name, note):
 
 
 # Title of the Streamlit app
-st.markdown("## Valider la commande et télécharger le bon")
+st.markdown("## Valider la commande")
 st.markdown("""Vous pouvez télécharger le bon et nous l'envoyer à lechampdupuits@gmail.com.""")
 
 try:
@@ -160,7 +160,7 @@ try:
         ResetOrder()
     
     # Final preview before download
-    st.markdown("#### Commande finale")
+    st.markdown("#### Aperçu de la commande finale")
     edited_order["Quantité"] = edited_order["Quantité"].apply(lambda x: x.replace(",", "."))
     final_order = UpdateOrderFinal(edited_order)
     st.dataframe(final_order, hide_index=True, use_container_width=True)

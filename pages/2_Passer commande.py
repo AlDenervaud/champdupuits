@@ -56,7 +56,7 @@ try:
                     ):
         pass
     
-    if client_name == "admin":
+    if True:#client_name == "admin":
         if st.button("Send Email"):
             if receiver and subject and body and pdf_content:
                 pdf_path = generate_pdf(pdf_content)

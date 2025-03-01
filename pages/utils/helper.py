@@ -13,14 +13,13 @@ from email.message import EmailMessage
 secrets_email = st.secrets["email"]
 email_address = secrets_email["address"]
 email_passkey = secrets_email["passkey"]
-email_receiver = secrets_email["receiver"]
 
 # Function to send an email with an attachment
 def SendEmail(receiver, subject, body, pdf_path):
     msg = EmailMessage()
     msg.set_content(body)
     msg["Subject"] = subject
-    msg["From"] = EMAIL_ADDRESS
+    msg["From"] = email_address
     msg["To"] = receiver
 
     # Attach PDF file
@@ -31,7 +30,7 @@ def SendEmail(receiver, subject, body, pdf_path):
     # Send email using SMTP
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context()) as server:
-            server.login(EMAIL_ADDRESS, EMAIL_PASSKEY)
+            server.login(email_address, email_passkey)
             server.send_message(msg)
         st.success(f"Email sent successfully to {receiver}!")
     except Exception as e:

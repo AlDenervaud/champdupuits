@@ -138,9 +138,9 @@ def GeneratePDF(df, client_name, note):
         pdf_output = pdf.output(dest='S').encode('latin1')
         return pdf_output
 
-import smtplib
-import ssl
-from email.message import EmailMessage
+#import smtplib
+#import ssl
+#from email.message import EmailMessage
 
 # Function to send an email with an attachment
 def send_email(receiver, subject, body, pdf_path):

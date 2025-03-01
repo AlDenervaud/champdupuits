@@ -7,7 +7,7 @@ from streamlit_js_eval import streamlit_js_eval
 from io import BytesIO
 from fpdf import FPDF
 # Custom
-from pages.utils.helper import test
+from pages.utils.helper import UpdateOrderFinal
 
 
 def ResetOrder():

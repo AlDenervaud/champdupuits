@@ -12,6 +12,7 @@ from pages.utils.helper import SendEmail
 secrets_email = st.secrets["email"]
 email_address = secrets_email["address"]
 email_passkey = secrets_email["passkey"]
+email_receiver = secrets_email["receiver"]
 
 
 # Title of the Streamlit app
@@ -59,9 +60,12 @@ try:
     
     if True:#client_name == "admin":
         if st.button("Send Email"):
-            if receiver and subject and body and pdf_content:
-                pdf_path = generate_pdf(pdf_content)
-                send_email(receiver, subject, body, pdf_path)
+            #receiver = #"lechampdupuits@gmail.com"
+            receiver = email_receiver
+            subject = "Commande de la part de {}".format(client_name)
+            body = "Test"
+            if receiver and subject and body and pdf_buffer:
+                SendEmail(receiver, subject, body, pdf_buffer)
             else:
                 st.warning("Please fill in all fields.")
     

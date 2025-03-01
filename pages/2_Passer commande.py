@@ -65,7 +65,7 @@ try:
             subject = "Commande de la part de {}".format(client_name)
             body = "Test"
             if receiver and subject and body and pdf_buffer:
-                SendEmail(receiver, subject, body, pdf_buffer)
+                SendEmail(receiver, subject, body)
             else:
                 st.warning("Please fill in all fields.")
     

@@ -14,8 +14,27 @@ secrets_email = st.secrets["email"]
 email_address = secrets_email["address"]
 email_passkey = secrets_email["passkey"]
 
+
+
+def SendEmail(receiver, subject, body):
+    msg = EmailMessage()
+    msg.set_content(body)
+    msg["Subject"] = subject
+    msg["From"] = email_address
+    msg["To"] = receiver
+
+    # Send email using SMTP
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context()) as server:
+            server.login(email_address, email_passkey)
+            server.send_message(msg)
+        st.success(f"Email sent successfully to {receiver}!")
+    except Exception as e:
+        st.error(f"Error sending email: {e}")
+        
+        
 # Function to send an email with an attachment
-def SendEmail(receiver, subject, body, pdf_path):
+def SendEmailPDF(receiver, subject, body, pdf_path):
     msg = EmailMessage()
     msg.set_content(body)
     msg["Subject"] = subject

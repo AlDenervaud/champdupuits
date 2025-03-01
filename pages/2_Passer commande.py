@@ -47,11 +47,6 @@ try:
     # Generate PDF
     pdf_buffer = GeneratePDF(pd.DataFrame(final_order), client_name, note)
 
-    # Embed PDF to display it:
-    #base64_pdf = b64encode(gen_pdf()).decode("utf-8")
-    #pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="400" type="application/pdf">'
-    #st.markdown(pdf_display, unsafe_allow_html=True)
-
     # Download button
     if st.download_button(label="Télécharger le bon de commande",
                     type="primary",
@@ -60,6 +55,14 @@ try:
                     mime="application/pdf"
                     ):
         pass
+    
+    if client_name == "admin":
+        if st.button("Send Email"):
+            if receiver and subject and body and pdf_content:
+                pdf_path = generate_pdf(pdf_content)
+                send_email(receiver, subject, body, pdf_path)
+            else:
+                st.warning("Please fill in all fields.")
     
 except Exception as e:
     if "st.session_state has no key \"order_df\"" in str(e):

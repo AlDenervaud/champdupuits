@@ -6,8 +6,14 @@ from fpdf import FPDF
 # Specific to email
 import smtplib
 import ssl
+import streamlit as st
 from email.message import EmailMessage
 
+# Retrieve secrets
+secrets_email = st.secrets["email"]
+email_address = secrets_email["address"]
+email_passkey = secrets_email["passkey"]
+email_receiver = secrets_email["receiver"]
 
 # Function to send an email with an attachment
 def SendEmail(receiver, subject, body, pdf_path):

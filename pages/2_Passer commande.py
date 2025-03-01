@@ -138,6 +138,11 @@ def GeneratePDF(df, client_name, note):
         pdf_output = pdf.output(dest='S').encode('latin1')
         return pdf_output
 
+# Retrieve secrets
+secrets_email = st.secrets["email"]
+email_address = secrets_email["address"]
+email_passkey = secrets_email["passkey"]
+
 
 # Title of the Streamlit app
 st.markdown("## Valider la commande")

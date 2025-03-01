@@ -138,6 +138,34 @@ def GeneratePDF(df, client_name, note):
         pdf_output = pdf.output(dest='S').encode('latin1')
         return pdf_output
 
+import smtplib
+import ssl
+from email.message import EmailMessage
+
+# Function to send an email with an attachment
+def send_email(receiver, subject, body, pdf_path):
+    msg = EmailMessage()
+    msg.set_content(body)
+    msg["Subject"] = subject
+    msg["From"] = EMAIL_ADDRESS
+    msg["To"] = receiver
+
+    # Attach PDF file
+    with open(pdf_path, "rb") as f:
+        pdf_data = f.read()
+        msg.add_attachment(pdf_data, maintype="application", subtype="pdf", filename="attachment.pdf")
+
+    # Send email using SMTP
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=ssl.create_default_context()) as server:
+            server.login(EMAIL_ADDRESS, EMAIL_PASSKEY)
+            server.send_message(msg)
+        st.success(f"Email sent successfully to {receiver}!")
+    except Exception as e:
+        st.error(f"Error sending email: {e}")
+    
+
+
 # Retrieve secrets
 secrets_email = st.secrets["email"]
 email_address = secrets_email["address"]

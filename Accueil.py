@@ -130,7 +130,7 @@ if order.shape[0]>0:
         pdf_buffer = GeneratePDF(pd.DataFrame(final_order), client_name, note)
         
         # Download button - PDF need to be generated before
-        if st.download_button(label="Télécharger le bon de commande",
+        if c2.download_button(label="Télécharger le bon de commande",
                         type="primary",
                         data=pdf_buffer,
                         file_name="Commande_{}_{}.pdf".format(client_name.replace(" ", "_"), dt.now().strftime("%d%m%Y")),

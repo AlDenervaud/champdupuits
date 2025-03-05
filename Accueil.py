@@ -95,10 +95,6 @@ order = selected_rows[selected_rows["select"]]
 
 # Proceed only if at least one row selected
 if order.shape[0]>0:
-    
-    # Reset order button
-    if st.button("Réinitialiser la commande"):
-        ResetOrder()
 
     # Update prices
     final_order = UpdateOrderFinal(order)
@@ -123,6 +119,11 @@ if order.shape[0]>0:
     note = st.text_input("Ajouter une remarque (appuyez sur entrée pour valider)", value="", placeholder="...")
     st.session_state["client_name"] = client_name
     
+    c1, c2 = st.columns([1,2])
+    # Reset order button
+    if c1.button("Réinitialiser la commande"):
+        ResetOrder()
+        
     # Proceed to PDF generation / download only if a name has been provided
     if client_name != "":
         # Generate PDF

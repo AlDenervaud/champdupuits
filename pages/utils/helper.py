@@ -1,5 +1,6 @@
 import pandas as pd
 from datetime import datetime as dt
+from streamlit_js_eval import streamlit_js_eval
 # Specific to PDF
 from io import BytesIO
 from fpdf import FPDF
@@ -110,22 +111,22 @@ def GeneratePDF(df, client_name, note):
     # Add table rows
     def add_table_rows(df):
         for index, row in df.iterrows():
-            if row["Nom"] == "":
+            if row["name"] == "":
                 pdf.cell(product_width+price_width+quantity_width, cell_height, txt="", border=0)
-                pdf.cell(total_width, cell_height, txt=row["Total"], border=1, align="C", fill=False)
+                pdf.cell(total_width, cell_height, txt=row["total"], border=1, align="C", fill=False)
             else:
-                pdf.cell(product_width, cell_height, txt=row["Nom"], border=1, align="C", fill=True)
-                pdf.cell(price_width, cell_height, txt=str(row["Prix"]), border=1, align="C", fill=False)
+                pdf.cell(product_width, cell_height, txt=row["name"], border=1, align="C", fill=True)
+                pdf.cell(price_width, cell_height, txt=str(row["price"]), border=1, align="C", fill=False)
                 #pdf.cell(category_width, cell_height, txt=str(row["Categorie"]), border=1, align="C", fill=True)
-                pdf.cell(quantity_width, cell_height, txt=str(row["Quantité"]), border=1, align="C", fill=False)
-                pdf.cell(total_width, cell_height, txt=row["Total"], border=1, align="C", fill=False)
+                pdf.cell(quantity_width, cell_height, txt=str(row["quantity"]), border=1, align="C", fill=False)
+                pdf.cell(total_width, cell_height, txt=row["total"], border=1, align="C", fill=False)
             pdf.ln()
     
     # Get unique categories
-    categories = df["Catégorie"].unique()
+    categories = df["category"].unique()
     for category in categories:
         
-        sub_df = df[df["Catégorie"]==category]
+        sub_df = df[df["category"]==category]
         if category.lower() == "apiculture":
             pdf.set_fill_color(255, 255, 204)
         elif category.lower() == "fromagerie":
@@ -138,8 +139,9 @@ def GeneratePDF(df, client_name, note):
         add_table_rows(sub_df)
 
     # Add note
-    pdf.cell(200, linebreak_height, txt="Remarque", ln=True, align="L", fill=False)
-    pdf.cell(200, linebreak_height, txt=note, ln=True, align="L", fill=False)
+    if note != "":
+        pdf.cell(200, linebreak_height, txt="Remarque", ln=True, align="L", fill=False)
+        pdf.cell(200, linebreak_height, txt=note, ln=True, align="L", fill=False)
 
     if False: # works locally only
         pdf_output = BytesIO()
@@ -151,36 +153,31 @@ def GeneratePDF(df, client_name, note):
         return pdf_output
 
 def ResetOrder():
-    """Empties the order dataframe"""
-    try:
-        st.session_state["order_df"] = None
-        st.toast("Commande effacée avec succès")
-    except Exception as e:
-        st.error("Erreur dans la suppression de la commande: {}".format(e))
+    """reloads the page to empty selection"""
     streamlit_js_eval(js_expressions="parent.window.location.reload()")
     return
 
 
 def UpdateOrderFinal(order):
     # Reset Total column
-    if "Total" in order.columns:
-        order.drop("Total", axis=1, inplace=True)
+    if "total" in order.columns:
+        order.drop("total", axis=1, inplace=True)
     # Remove row with grand total
-    order = order[order["Nom"].str.strip() != ""]
+    order = order[order["name"].str.strip() != ""]
     
     # Updates total price based on price and quantity
-    order["price_temp"] = order["Prix"].apply(lambda x: float(x.split(" ")[0].replace(",", ".")))
-    order["Quantité"] = pd.to_numeric(order["Quantité"], errors='coerce')
-    order["Total"] = order["price_temp"] * order["Quantité"]
+    order["price_temp"] = order["price"].apply(lambda x: float(x.split(" ")[0].replace(",", ".")))
+    order["quantity"] = pd.to_numeric(order["quantity"], errors='coerce')
+    order["total"] = order["price_temp"] * order["quantity"]
     
     # Remove items with 0 quantity
-    order = order[order["Quantité"] != 0]
+    order = order[order["quantity"] != 0]
     
     # Add grand total
-    order = order._append({"Nom":"", "Prix":"", "Catégorie":"", "Quantité":"", "Total":order["Total"].sum()}, ignore_index=True)
-    order["Total"] = order["Total"].apply(lambda x: "{:.2f} €".format(x))
+    order = order._append({"name":"", "price":"", "category":"", "quantity":"", "total":order["total"].sum()}, ignore_index=True)
+    order["total"] = order["total"].apply(lambda x: "{:.2f} €".format(x))
 
     # Cleaning
-    final_order = order[['Nom', 'Prix', 'Catégorie', 'Quantité', 'Total']]
+    final_order = order[['name', 'price', 'category', 'quantity', 'total']]
 
     return final_order

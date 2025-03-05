@@ -45,6 +45,10 @@ st.markdown("""Sur ce site vous pourrez trouver la liste des produits de la ferm
  La liste est indicative uniquement et ne reflète pas l'état des stocks,
  il se peut que certains produits soient indisponibles.""")
  
+ st.info("""Dans le tableau ci-dessous, cochez les produits que vous souhaitez commander et
+    indiquez les quantités voulues en nombre d'unités ou en poids (kg).""",
+    icon="✍️")
+ 
 ###############################################################################
 
 # Basic settings

@@ -62,13 +62,9 @@ df.insert(0, "quantity", "0")
 df.insert(0, "select", False)
 
 
-
-import pandas as pd
-import streamlit as st
-
 # Column configs
-image_conf = st.column_config.ImageColumn(label="Photo", width="small", help="Photo non contractuelle")
-select_conf = st.column_config.CheckboxColumn(label="Ajouter au panier")
+image_conf = st.column_config.ImageColumn(label="Photo", width="medium", help="Photo non contractuelle")
+select_conf = st.column_config.CheckboxColumn(label="Commander")
 # Choose which column are editable
 active_cols = ["select", "quantity"]
 disabled_cols = [col for col in df.columns if col not in active_cols]
@@ -80,13 +76,13 @@ selected_rows = st.data_editor(
                                                 "price":"Prix",
                                                 "units":None,
                                                 "select":select_conf,
-                                                "quantity":"Quantité (en kg ou unités)",
+                                                "quantity":"Quantité",
                                                 "category":None,
                                                 "image_path":image_conf,
                                                 },
                                 hide_index = True,
                                 disabled = disabled_cols,
-                                row_height=75,
+                                row_height=100,
                             )
 
 
@@ -116,7 +112,7 @@ if order.shape[0]>0:
     
     # Retrieve client's name
     client_name = st.text_input("Votre nom (appuyez sur entrée pour valider)", value="", placeholder="Veuillez entrer votre nom")
-    note = st.text_input("Ajouter une remarque (appuyez sur entrée pour valider)", value="", placeholder="...")
+    note = st.text_input("Optionnel: ajouter une remarque (appuyez sur entrée pour valider)", value="", placeholder="...")
     st.session_state["client_name"] = client_name
     
     c1, c2 = st.columns([1,2])

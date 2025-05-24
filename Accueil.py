@@ -20,24 +20,7 @@ email_receiver = secrets_email["receiver"]
 
 
 utils.config_page(page_name="🐮")
-
-
-
-# Inject custom CSS to enable full screen width
-st.markdown(
-    """
-    <style>
-        /* Center content horizontally and align to the top */
-        .main .block-container {
-            max-width: 2500px;  /* Adjust width as needed */
-            margin: 50 auto;    /* Center horizontally */
-            padding-top: 50px; /* Adjust top padding for spacing */
-            text-align: center; /* Center text */
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+utils.customize_css()
        
 # Title of the Streamlit app
 st.title(":rainbow[Bienvenue au Champ du Puits]")

@@ -8,6 +8,7 @@ from datetime import datetime as dt
 from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode, DataReturnMode
 from st_aggrid.shared import JsCode, ColumnsAutoSizeMode
 
+from bin import utils
 from pages.utils.helper import UpdateOrderFinal, ResetOrder
 from pages.utils.helper import GeneratePDF, SendEmail
 
@@ -16,6 +17,9 @@ secrets_email = st.secrets["email"]
 email_address = secrets_email["address"]
 email_passkey = secrets_email["passkey"]
 email_receiver = secrets_email["receiver"]
+
+
+utils.config_page(page_name="🐮")
 
 
 

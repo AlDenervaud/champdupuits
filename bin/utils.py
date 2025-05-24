@@ -18,8 +18,7 @@ email_address = secrets_email["address"]
 email_passkey = secrets_email["passkey"]
 
 def config_page(page_name="", page_icon=None):
-    """  """
-    page_name = " - {}".format(page_name) if page_name != "" else page_name
+    """ Sets the app page name """
     if page_icon:
         image = Image.open(page_icon)
     else:

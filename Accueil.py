@@ -82,7 +82,7 @@ if order.shape[0]>0:
     final_order = UpdateOrderFinal(order)
     
     # Preview
-    st.markdown("""#### Aperçu""")
+    st.markdown("""#### Aperçu de la commande""")
     st.data_editor(
                     final_order,
                     column_config={

@@ -9,8 +9,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode, DataReturnMode
 from st_aggrid.shared import JsCode, ColumnsAutoSizeMode
 
 from bin import utils
-from pages.utils.helper import UpdateOrderFinal, ResetOrder
-from pages.utils.helper import GeneratePDF, SendEmail
+from utils import GeneratePDF, SendEmail
 
 # Retrieve secrets
 secrets_email = st.secrets["email"]
@@ -105,12 +104,12 @@ if order.shape[0]>0:
     c1, c2 = st.columns([1,2])
     # Reset order button
     if c1.button("Réinitialiser la commande"):
-        ResetOrder()
+        utils.ResetOrder()
         
     # Proceed to PDF generation / download only if a name has been provided
     if client_name != "":
         # Generate PDF
-        pdf_buffer = GeneratePDF(pd.DataFrame(final_order), client_name, note)
+        pdf_buffer = utils.GeneratePDF(pd.DataFrame(final_order), client_name, note)
         
         # Download button - PDF need to be generated before
         if c2.download_button(label="Télécharger le bon de commande",

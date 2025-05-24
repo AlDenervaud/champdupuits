@@ -9,7 +9,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode, DataReturnMode
 from st_aggrid.shared import JsCode, ColumnsAutoSizeMode
 
 from bin import utils
-from utils import GeneratePDF, SendEmail
+from bin.utils import GeneratePDF, SendEmail
 
 # Retrieve secrets
 secrets_email = st.secrets["email"]
